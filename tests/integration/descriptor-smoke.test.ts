@@ -11,7 +11,7 @@ describe("descriptor and standard entrypoint", () => {
 			id: "seo-core",
 			version: "0.1.0",
 			format: "standard",
-			entrypoint: "emdash-seo-core/sandbox",
+			entrypoint: "@masonjames/emdash-seo-core/sandbox",
 			capabilities: [],
 			allowedHosts: [],
 			adminPages: [{ path: "/settings", label: "SEO Core", icon: "globe" }],

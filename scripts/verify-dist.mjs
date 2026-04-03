@@ -1,14 +1,14 @@
 import assert from "node:assert/strict";
 
-const descriptorModule = await import("emdash-seo-core");
-const sandboxModule = await import("emdash-seo-core/sandbox");
+const descriptorModule = await import("@masonjames/emdash-seo-core");
+const sandboxModule = await import("@masonjames/emdash-seo-core/sandbox");
 
 assert.equal(typeof descriptorModule.default, "function");
 assert.equal(typeof descriptorModule.seoCore, "function");
 
 const descriptor = descriptorModule.default();
 assert.equal(descriptor.id, "seo-core");
-assert.equal(descriptor.entrypoint, "emdash-seo-core/sandbox");
+assert.equal(descriptor.entrypoint, "@masonjames/emdash-seo-core/sandbox");
 
 assert.equal(typeof sandboxModule.default, "object");
 assert.ok(sandboxModule.default);

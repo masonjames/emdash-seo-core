@@ -1,5 +1,5 @@
 {
-  "name": "emdash-seo-core",
+  "name": "@masonjames/emdash-seo-core",
   "version": "0.1.0",
   "description": "Subset-first SEO metadata plugin for EmDash CMS",
   "type": "module",
@@ -45,6 +45,9 @@
     "url": "https://github.com/masonjames/emdash-seo-core/issues"
   },
   "homepage": "https://github.com/masonjames/emdash-seo-core#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "pnpm@10.28.0",
   "peerDependencies": {
     "emdash": "^0.1.0"

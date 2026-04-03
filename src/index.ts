@@ -1,7 +1,7 @@
 import type { PluginDescriptor } from "emdash";
 
 const VERSION = "0.1.0";
-const PACKAGE_NAME = "emdash-seo-core";
+const PACKAGE_NAME = "@masonjames/emdash-seo-core";
 
 export function seoCore(): PluginDescriptor {
 	return {

@@ -25,18 +25,24 @@ Inspired by the best day-one wins from Rank Math and The SEO Framework, this plu
 ## Installation
 
 ```bash
-pnpm add emdash-seo-core
+pnpm add @masonjames/emdash-seo-core
 ```
 
 > Requires `emdash` `^0.1.0` in the host site.
 
-Then register the plugin in your EmDash config:
+Then register the plugin in `astro.config.mjs`:
 
-```ts
-import seoCore from "emdash-seo-core";
+```ts title="astro.config.mjs"
+import { defineConfig } from "astro/config";
+import emdash from "emdash/astro";
+import seoCore from "@masonjames/emdash-seo-core";
 
-emdash({
-	plugins: [seoCore()],
+export default defineConfig({
+	integrations: [
+		emdash({
+			plugins: [seoCore()],
+		}),
+	],
 });
 ```
 
@@ -124,6 +130,39 @@ pnpm test:dist
 ```
 
 Typechecking and tests run against the real published `emdash` package, and `pnpm test:dist` verifies the built package exports (`.` and `./sandbox`).
+
+## Maintainer release workflow
+
+This package is published on npm as:
+
+```bash
+@masonjames/emdash-seo-core
+```
+
+### Manual publish
+
+Publish to npm:
+
+```bash
+npm publish --access public
+```
+
+### Trusted publishing
+
+For future releases, configure npm Trusted Publishing for:
+
+- GitHub owner/user: `masonjames`
+- Repository: `emdash-seo-core`
+- Workflow file: `publish.yml`
+
+This repo includes `.github/workflows/publish.yml`, which uses GitHub Actions OIDC (`id-token: write`) so npm can publish without a long-lived publish token once the trusted publisher is configured in npm package settings.
+
+Publish the plugin tarball to the EmDash Marketplace:
+
+```bash
+pnpm exec emdash plugin publish --build
+```
+
 ## License
 
 MIT

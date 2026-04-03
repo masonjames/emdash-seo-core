@@ -1,0 +1,59 @@
+{
+  "name": "emdash-seo-core",
+  "version": "0.1.0",
+  "description": "Subset-first SEO metadata plugin for EmDash CMS",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./sandbox": {
+      "types": "./dist/sandbox-entry.d.mts",
+      "default": "./dist/sandbox-entry.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:dist": "node ./scripts/verify-dist.mjs",
+    "check": "pnpm typecheck && pnpm test && pnpm build && pnpm test:dist",
+    "prepublishOnly": "pnpm build && pnpm test:dist"
+  },
+  "keywords": [
+    "emdash",
+    "seo",
+    "metadata",
+    "schema",
+    "opengraph",
+    "canonical"
+  ],
+  "author": "Mason James",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masonjames/emdash-seo-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/masonjames/emdash-seo-core/issues"
+  },
+  "homepage": "https://github.com/masonjames/emdash-seo-core#readme",
+  "packageManager": "pnpm@10.28.0",
+  "peerDependencies": {
+    "emdash": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "emdash": "^0.1.0",
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}
